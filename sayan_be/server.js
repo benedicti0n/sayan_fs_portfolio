@@ -32,9 +32,10 @@ const app = express();
 // Enable CORS with specific configuration for local testing
 // This allows requests from any origin during development
 app.use(cors({
-    origin: process.env.CLIENT_URL, // Allow all origins for testing
+    origin: ['https://sayan-fs-portfolio.vercel.app', 'http://localhost:3000'], // Allow Vercel domain and local development
     methods: ['GET', 'POST', 'DELETE'], // Allow necessary methods including DELETE
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true // Allow credentials
 }));
 
 // Middleware
