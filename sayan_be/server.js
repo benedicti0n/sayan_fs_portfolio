@@ -31,7 +31,7 @@ const app = express();
 
 // Enable CORS with specific configuration
 app.use(cors({
-    origin: 'https://sayan-fs-portfolio.vercel.app/', // Allow all origins temporarily to debug
+    origin: 'https://sayan-fs-portfolio.vercel.app', // Removed trailing slash
     methods: ['GET', 'POST', 'DELETE'], // Allow necessary methods including DELETE
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: false // Disable credentials since we're allowing all origins
