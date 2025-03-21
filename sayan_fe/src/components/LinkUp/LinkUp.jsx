@@ -5,7 +5,7 @@ import styles from './LinkUp.module.css'; // Import the CSS module
 
 // API base URL - can be configured based on environment
 // Default to absolute URL for local development if environment variable is not set
-const API_BASE_URL = "https://sayanfsportfolio-production.up.railway.app";
+const API_BASE_URL = "https://sayanfsportfolio-production.up.railway.app/api";
 
 // OTP expiration time in minutes
 const OTP_EXPIRATION_MINUTES = 15;
@@ -33,7 +33,7 @@ const LinkupForm = () => {
     const checkApiStatus = async () => {
       try {
         // Try to connect to the health endpoint
-        const response = await fetch(`${API_BASE_URL}/api/health`, {
+        const response = await fetch(`${API_BASE_URL}/health`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
