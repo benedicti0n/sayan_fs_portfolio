@@ -31,21 +31,22 @@ const app = express();
 
 // Enable CORS with specific configuration
 app.use(cors({
-    origin: 'https://sayan-fs-portfolio.vercel.app', // Removed trailing slash
-    methods: ['GET', 'POST', 'DELETE'], // Allow necessary methods including DELETE
+    origin: ['https://sayanbanik.site', 'http://localhost:3000', 'http://localhost:5173'],
+    methods: ['GET', 'POST', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: false // Disable credentials since we're allowing all origins
+    credentials: true
 }));
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api', userRoutes);
 app.use('/api/admin', adminRoutes); // Mount admin routes
 
-// Health check endpoint
-app.get('/health', (req, res) => {
+// Health check endpoint - replace the current health check with this
+app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
