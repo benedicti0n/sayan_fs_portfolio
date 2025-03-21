@@ -1,0 +1,38 @@
+.craftPage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.craftContent {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.cardSectionWrapper {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Ensure particles and clouds are contained within the card section */
+.cardSectionWrapper > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Ensure CraftSection is positioned above particles and clouds */
+.cardSectionWrapper > :nth-child(2) {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .cardSectionWrapper {
+        min-height: auto;
+        padding: 40px 0;
+    }
+}

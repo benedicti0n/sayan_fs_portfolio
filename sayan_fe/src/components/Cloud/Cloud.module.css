@@ -1,0 +1,21 @@
+.cloud {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    animation: float 10s infinite linear;
+}
+
+.cloud img {
+    width: 100%;
+    height: auto;
+    opacity: 0.3;
+}
+
+@keyframes float {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}

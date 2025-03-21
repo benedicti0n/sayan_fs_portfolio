@@ -1,0 +1,180 @@
+/* Solar System Section */
+.solarSystem {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.sun {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #ff8c00, #ff4500);
+  border-radius: 50%;
+  box-shadow: 0 0 50px #ff4500;
+  animation: glow 2s infinite alternate;
+  z-index: 10;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 50px #ff4500;
+  }
+
+  100% {
+    box-shadow: 0 0 100px #ff8c00;
+  }
+}
+
+.orbit {
+  position: absolute;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: rotateOrbit linear infinite;
+  z-index: 5;
+}
+
+:global(body.light-mode) .orbit {
+  border: 2px dashed rgba(128, 128, 128, 0.4);
+}
+
+@keyframes rotateOrbit {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.planet {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  animation: orbit linear infinite;
+  z-index: 8;
+}
+
+.planet img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
+  }
+}
+
+/* Add responsive styles for the solar system */
+.launchpadContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.contentContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+  .sun {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .planet {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .solarSystem {
+    height: 80vh;
+    margin-top: -50px; /* Move up to reduce gap */
+  }
+  
+  .sun {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .planet {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .solarSystem {
+    height: 70vh;
+    margin-top: -80px; /* Move up further on smaller screens */
+  }
+  
+  .sun {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .planet {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .solarSystem {
+    height: 60vh;
+    margin-top: -100px; /* Move up even further on mobile */
+  }
+  
+  .sun {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .planet {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 400px) {
+  .solarSystem {
+    height: 50vh;
+    margin-top: -120px;
+  }
+  
+  .sun {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .planet {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,28 @@
+.thunderImg {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    opacity: 0;
+    z-index: 100;
+    animation: thunderFade 2s linear infinite;
+}
+
+@keyframes thunderFade {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+:global(body.light-mode) .thunderImg {
+    opacity: 0.8; /* Slightly transparent */
+    filter: brightness(0.7) drop-shadow(0 0 5px rgb(12, 145, 207));
+}

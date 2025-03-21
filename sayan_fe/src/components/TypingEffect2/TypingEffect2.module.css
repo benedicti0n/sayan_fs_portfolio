@@ -1,0 +1,43 @@
+/* TypingEffect.module.css */
+
+.typingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Adjusted height to leave space for the solar system */
+    text-align: center; /* Ensures text stays centered */
+    padding: 20px;
+}
+
+.typingText {
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+/* Light mode styles for typing text */
+:global(body.light-mode) .typingText {
+    color: #333;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: white; /* Default cursor color */
+    animation: blink 0.7s infinite;
+}
+
+/* Light mode styles for cursor */
+:global(body.light-mode) .cursor {
+    background-color: #333; /* Cursor color in light mode */
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}

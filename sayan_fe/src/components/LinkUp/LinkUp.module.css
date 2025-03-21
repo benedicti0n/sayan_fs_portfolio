@@ -1,0 +1,230 @@
+.styledWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Ensure the form is centered vertically */
+  padding: 20px;
+  /* Add padding to prevent the form from touching the edges on small screens */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* Full width on small screens */
+  max-width: 300px;
+  /* Fixed max-width for larger screens */
+  padding: 20px;
+  background-color: #171717;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+.formHeading {
+  text-align: center;
+  margin: 1em 0;
+  color: #64ffda;
+  font-size: 1.2em;
+  background-color: transparent;
+}
+
+.formField {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border-radius: 5px;
+    padding: 0.6em;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+.formField {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 5px;
+  padding: 0.6em;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #171717;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.inputField {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #ccd6f6;
+  padding-inline: 1em;
+}
+
+.sendMessageBtn {
+  cursor: pointer;
+  margin-top: 1em;
+  padding: 0.8em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #64ffda;
+  font-weight: bold;
+  outline: 1px solid #64ffda;
+  transition: all ease-in-out 0.3s;
+  font-size: 15px;
+}
+
+.sendMessageBtn:hover {
+  background-color: #64ffda;
+  color: #000;
+  cursor: pointer;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.sendMessageBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.sendMessageBtn:disabled:hover {
+  background-color: transparent;
+  color: #64ffda;
+  box-shadow: none;
+}
+
+/* Gradient border container */
+.formCard1 {
+  background-image: linear-gradient(163deg, #64ffda 0%, #64ffda 100%);
+  border-radius: 10px;
+  transition: all 0.3s;
+  padding: 2px;
+  width: fit-content;
+  max-width: 100%;
+  /* Ensure it doesn't overflow on small screens */
+}
+
+.formCard1:hover {
+  box-shadow: 0px 0px 30px 1px rgba(100, 255, 218, 0.3);
+}
+
+/* Inner card */
+.formCard2 {
+  border-radius: 10px;
+  transition: all 0.2s;
+  background-color: #171717;
+}
+
+.formCard2:hover {
+  transform: scale(0.98);
+  border-radius: 10px;
+}
+
+.otpField {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.otpField .formField {
+  margin-bottom: 15px;
+}
+
+/* Loading Circle */
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(23, 23, 23, 0.7); /* Semi-transparent background */
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #64ffda;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* OTP Form Container */
+.otpFormContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  background-color: #171717;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+.cancelBtn {
+  background-color: transparent;
+  color: #ff6b6b;
+  outline: 1px solid #ff6b6b;
+  margin-top: 10px;
+}
+
+.cancelBtn:hover {
+  background-color: #ff6b6b;
+  color: #000;
+}
+
+.cancelBtn:disabled:hover {
+  background-color: transparent;
+  color: #ff6b6b;
+  box-shadow: none;
+}
+
+.otpButtonsRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 15px; /* Add gap between buttons */
+}
+
+.otpButtonsRow button {
+  flex: 1; /* Make buttons take equal width */
+  margin-top: 0; /* Override the default margin-top */
+}
+
+.resendBtn {
+  background-color: transparent;
+  color: #4a90e2;
+  outline: 1px solid #4a90e2;
+}
+
+.resendBtn:hover {
+  background-color: #4a90e2;
+  color: #000;
+}
+
+.resendBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.resendBtn:disabled:hover {
+  background-color: transparent;
+  color: #4a90e2;
+  box-shadow: none;
+}

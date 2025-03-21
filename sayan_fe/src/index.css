@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden; /* Removes horizontal scrolling */
+  overflow-y: auto; /* Allows smooth vertical scrolling */
+}
+
+/* Dark Mode (Default) */
+body {
+  background: linear-gradient(to bottom left, #001a33, #004080);
+  color: white;
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  max-width: 100%;
+}
+/* body::-webkit-scrollbar{
+  width: 10px;
+  background: #001a33;
+} */
+
+
+/* Light Mode */
+body.light-mode {
+  background: linear-gradient(135deg, #e0f7ff, #b3e0ff);
+  color: #333;
+}
+.launchpad{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  justify-content: center;
+  overflow: hidden; /* Ensure no unwanted scrolling */
+}

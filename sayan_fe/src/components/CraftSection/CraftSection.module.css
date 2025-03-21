@@ -1,0 +1,50 @@
+.craftSection {
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .cardContainer {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .craftSection {
+        padding: 80px 15px;
+    }
+    
+    .cardContainer {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .craftSection {
+        padding: 60px 10px;
+    }
+    
+    .cardContainer {
+        padding: 10px;
+    }
+}
