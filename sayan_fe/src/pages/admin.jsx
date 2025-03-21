@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from './admin.module.css';
 
 // API base URL - can be configured based on environment
-const API_BASE_URL = "https://sayanfsportfolio-production.up.railway.app";
+const API_BASE_URL = "https://sayan-fs-be.vercel.app/";
 
 // Debug log
 console.log('Admin component loaded, API_BASE_URL:', API_BASE_URL);
