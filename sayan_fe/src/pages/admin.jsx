@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from './admin.module.css';
 
 // API base URL - can be configured based on environment
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3002/api';
+const API_BASE_URL = "sayanfsportfolio-production.up.railway.app";
 
 // Debug log
 console.log('Admin component loaded, API_BASE_URL:', API_BASE_URL);
@@ -30,7 +30,7 @@ const Admin = () => {
     setLoading(true);
     const url = `${API_BASE_URL}/admin/users`;
     console.log('Fetching users from:', url);
-    
+
     try {
       const response = await fetch(url, {
         method: 'GET',
@@ -38,7 +38,7 @@ const Admin = () => {
       });
 
       console.log('Response status:', response.status);
-      
+
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
@@ -75,7 +75,7 @@ const Admin = () => {
       // Remove the deleted user from the state
       setUsers(users.filter(user => user._id !== userId));
       toast.success('Message deleted successfully');
-      
+
       // Close modal if the deleted user was being viewed
       if (selectedUser && selectedUser._id === userId) {
         setShowModal(false);
@@ -119,9 +119,9 @@ const Admin = () => {
 
   // Function to format date
   const formatDate = (dateString) => {
-    const options = { 
-      year: 'numeric', 
-      month: 'short', 
+    const options = {
+      year: 'numeric',
+      month: 'short',
       day: 'numeric',
       hour: '2-digit',
       minute: '2-digit'
@@ -140,7 +140,7 @@ const Admin = () => {
     return 0;
   });
 
-  const filteredUsers = sortedUsers.filter(user => 
+  const filteredUsers = sortedUsers.filter(user =>
     user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
     user.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -166,13 +166,13 @@ const Admin = () => {
         <div className={styles.cardSubject}>{user.subject}</div>
         <div className={styles.cardPreview}>{user.message.substring(0, 100)}...</div>
         <div className={styles.cardActions}>
-          <button 
+          <button
             onClick={() => viewUser(user)}
             className={styles.viewButton}
           >
             View Full Message
           </button>
-          <button 
+          <button
             onClick={() => deleteUser(user._id)}
             className={styles.deleteButton}
           >
@@ -186,7 +186,7 @@ const Admin = () => {
   return (
     <div className={styles.adminContainer}>
       <ToastContainer position="top-right" autoClose={3000} />
-      
+
       <div className={styles.header}>
         <h1>Message Dashboard</h1>
         <div className={styles.headerControls}>
@@ -199,8 +199,8 @@ const Admin = () => {
               className={styles.searchInput}
             />
           </div>
-          <button 
-            onClick={toggleViewMode} 
+          <button
+            onClick={toggleViewMode}
             className={styles.viewToggleButton}
           >
             {viewMode === 'table' ? 'Card View' : 'Table View'}
@@ -258,13 +258,13 @@ const Admin = () => {
                         <td>{formatDate(user.createdAt)}</td>
                         <td className={styles.messagePreview}>{user.message.substring(0, 50)}...</td>
                         <td className={styles.actions}>
-                          <button 
+                          <button
                             onClick={() => viewUser(user)}
                             className={styles.viewButton}
                           >
                             View
                           </button>
-                          <button 
+                          <button
                             onClick={() => deleteUser(user._id)}
                             className={styles.deleteButton}
                           >
@@ -335,13 +335,13 @@ const Admin = () => {
               </div>
             </div>
             <div className={styles.modalFooter}>
-              <button 
+              <button
                 onClick={() => deleteUser(selectedUser._id)}
                 className={styles.deleteButton}
               >
                 Delete Message
               </button>
-              <button 
+              <button
                 onClick={closeModal}
                 className={styles.closeModalButton}
               >

@@ -5,7 +5,7 @@ import styles from './LinkUp.module.css'; // Import the CSS module
 
 // API base URL - can be configured based on environment
 // Default to absolute URL for local development if environment variable is not set
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3002/api';
+const API_BASE_URL = "sayanfsportfolio-production.up.railway.app";
 
 // OTP expiration time in minutes
 const OTP_EXPIRATION_MINUTES = 15;
@@ -37,7 +37,7 @@ const LinkupForm = () => {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
-        
+
         if (response.ok) {
           console.log('API is available');
           setApiStatus({ checked: true, available: true });
@@ -50,7 +50,7 @@ const LinkupForm = () => {
         setApiStatus({ checked: true, available: false });
       }
     };
-    
+
     checkApiStatus();
   }, []);
 
@@ -100,7 +100,7 @@ const LinkupForm = () => {
   // Validate form inputs
   const validateForm = () => {
     const errors = {};
-    
+
     // Basic validation rules
     if (!formData.name.trim()) errors.name = "Name is required";
     if (!formData.email.trim()) errors.email = "Email is required";
@@ -109,7 +109,7 @@ const LinkupForm = () => {
     else if (!/^\d{10,15}$/.test(formData.phone.replace(/[^0-9]/g, ''))) errors.phone = "Phone number is invalid";
     if (!formData.subject.trim()) errors.subject = "Subject is required";
     if (!formData.message.trim()) errors.message = "Message is required";
-    
+
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -120,7 +120,7 @@ const LinkupForm = () => {
       ...prev,
       [name]: value
     }));
-    
+
     // Clear error when user types
     if (formErrors[name]) {
       setFormErrors(prev => ({
@@ -132,24 +132,24 @@ const LinkupForm = () => {
 
   const handleSubmit = async (e) => {
     if (e && e.preventDefault) e.preventDefault();
-    
+
     // Check if API is available
     if (!apiStatus.available) {
       toast.error("Server is not available. Please try again later.");
       return;
     }
-    
+
     // Validate form before submission
     if (!validateForm()) {
       toast.error("Please fix the errors in the form");
       return;
     }
-    
+
     setIsLoading(true);
 
     try {
       console.log(`Submitting form to ${API_BASE_URL}/submit`);
-      
+
       // Use the configured API URL
       const response = await fetch(`${API_BASE_URL}/submit`, {
         method: 'POST',
@@ -158,7 +158,7 @@ const LinkupForm = () => {
       });
 
       const result = await response.json();
-      
+
       // Check the status code to determine the type of response
       if (response.ok) {
         if (result.message === 'OTP_REQUIRED') {
@@ -198,17 +198,17 @@ const LinkupForm = () => {
       toast.error("Server is not available. Please try again later.");
       return;
     }
-    
+
     if (!formData.otp.trim()) {
       toast.error('Please enter the OTP sent to your email');
       return;
     }
-    
+
     setIsLoading(true);
 
     try {
       console.log(`Verifying OTP at ${API_BASE_URL}/verify`);
-      
+
       // Use the configured API URL
       const response = await fetch(`${API_BASE_URL}/verify`, {
         method: 'POST',
@@ -217,7 +217,7 @@ const LinkupForm = () => {
       });
 
       const result = await response.json();
-      
+
       // Check the status code to determine the type of response
       if (response.ok) {
         if (result.message === 'Data saved successfully.') {
@@ -263,7 +263,7 @@ const LinkupForm = () => {
 
   const requestNewOTP = () => {
     if (!canResend) return;
-    
+
     setShowOTP(false);
     setTimerActive(false);
     setCanResend(false);
