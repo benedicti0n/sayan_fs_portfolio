@@ -5,7 +5,7 @@ import styles from './LinkUp.module.css'; // Import the CSS module
 
 // API base URL - can be configured based on environment
 // Default to absolute URL for local development if environment variable is not set
-const API_BASE_URL = "sayanfsportfolio-production.up.railway.app";
+const API_BASE_URL = "https://sayanfsportfolio-production.up.railway.app";
 
 // OTP expiration time in minutes
 const OTP_EXPIRATION_MINUTES = 15;

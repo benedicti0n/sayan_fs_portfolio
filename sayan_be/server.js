@@ -32,7 +32,7 @@ const app = express();
 // Enable CORS with specific configuration for local testing
 // This allows requests from any origin during development
 app.use(cors({
-    origin: process.env.CLIENT_URL || '*', // Allow all origins for testing
+    origin: process.env.CLIENT_URL, // Allow all origins for testing
     methods: ['GET', 'POST', 'DELETE'], // Allow necessary methods including DELETE
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
