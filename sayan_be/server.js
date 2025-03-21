@@ -32,9 +32,9 @@ const app = express();
 // Enable CORS with specific configuration for local testing
 // This allows requests from any origin during development
 app.use(cors({
-  origin: '*', // Allow all origins for testing
-  methods: ['GET', 'POST', 'DELETE'], // Allow necessary methods including DELETE
-  allowedHeaders: ['Content-Type', 'Authorization']
+    origin: process.env.CLIENT_URL || '*', // Allow all origins for testing
+    methods: ['GET', 'POST', 'DELETE'], // Allow necessary methods including DELETE
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Middleware
@@ -60,7 +60,7 @@ mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('Connected to MongoDB');
         // No longer dropping collections on startup to preserve data
-        
+
         // Start the server after successful database connection
         const PORT = process.env.PORT || 3002;
         app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
