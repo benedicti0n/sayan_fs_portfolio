@@ -33,7 +33,7 @@ const LinkupForm = () => {
     const checkApiStatus = async () => {
       try {
         // Try to connect to the health endpoint
-        const response = await fetch(`${API_BASE_URL.replace('/api', '')}/health`, {
+        const response = await fetch(`${API_BASE_URL}/health`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
