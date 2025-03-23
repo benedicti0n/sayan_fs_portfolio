@@ -19,7 +19,7 @@ const CraftSection = () => {
             title: 'User Enquiry Form',
             description: 'A responsive form to collect user inquiries and submission handling.',
             technologies: ['HTML, CSS, JavaScript', 'React.js, MongoDB, Express', 'Node.js',],
-            projectLink: '#',
+            projectLink: 'https://sayan-enquiry-project.vercel.app/',
         },
     ];
 
