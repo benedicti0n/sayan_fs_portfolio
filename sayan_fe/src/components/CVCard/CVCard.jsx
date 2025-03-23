@@ -3,7 +3,7 @@ import styles from './CvCard.module.css'; // Scoped CSS for the card
 
 const CvCard = () => {
     const handleDownload = () => {
-        const pdfUrl = 'Sayan_Banik_CV.jpg'; // Path to your CV file
+        const pdfUrl = '/sayan_docs/resume.pdf'; // Path to your CV file
         const link = document.createElement('a');
         link.href = pdfUrl;
         link.download = 'Resume - Sayan Banik'; // Name of the downloaded file
