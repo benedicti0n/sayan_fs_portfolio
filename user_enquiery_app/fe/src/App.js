@@ -9,28 +9,25 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [selectedMessage, setSelectedMessage] = useState(null);
-  
+
   // Use the same IP address as the frontend
-  const API_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:5000' 
-    : `http://${window.location.hostname}:5000`;
-  
+  const API_URL = "https://sayan-fs-portfolio.onrender.com"
   useEffect(() => {
     if (showAdminPanel) {
       fetchEnquiries();
     }
   }, [showAdminPanel]);
-  
+
   const fetchEnquiries = async () => {
     setLoading(true);
     try {
       const response = await fetch(`${API_URL}/api/enquiries`);
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.message || 'Failed to fetch enquiries');
       }
-      
+
       setEnquiries(data.data || []);
       setError('');
     } catch (err) {
@@ -40,17 +37,17 @@ function App() {
       setLoading(false);
     }
   };
-  
+
   const handleAdminClick = () => {
     setShowAdminPanel(!showAdminPanel);
     setSelectedMessage(null);
   };
-  
+
   const formatDate = (dateString) => {
     if (!dateString) return '';
-    const options = { 
-      year: 'numeric', 
-      month: 'short', 
+    const options = {
+      year: 'numeric',
+      month: 'short',
       day: 'numeric',
       hour: '2-digit',
       minute: '2-digit'
@@ -65,7 +62,7 @@ function App() {
   const closeMessageModal = () => {
     setSelectedMessage(null);
   };
-  
+
   return (
     <div className="page-container">
       <div className="content-wrap">
@@ -74,13 +71,13 @@ function App() {
             <i className="fas fa-user-shield"></i>
           </button>
         </div>
-        
+
         {showAdminPanel ? (
           <div className="admin-panel">
             <h2><i className="fas fa-database"></i></h2>
-            
+
             {error && <div className="error-message">{error}</div>}
-            
+
             {loading ? (
               <div className="loading">Loading data...</div>
             ) : enquiries.length === 0 ? (
@@ -102,8 +99,8 @@ function App() {
                       <tr key={enquiry._id}>
                         <td>{enquiry.name}</td>
                         <td>{enquiry.email}</td>
-                        <td 
-                          className="message-cell" 
+                        <td
+                          className="message-cell"
                           onClick={() => handleMessageClick(enquiry)}
                         >
                           <div className="message-preview">
@@ -141,7 +138,7 @@ function App() {
               <div className="message-details">
                 <p><strong>Email:</strong> {selectedMessage.email}</p>
                 <p><strong>Date:</strong> {formatDate(selectedMessage.createdAt)}</p>
-                <p><strong>Status:</strong> 
+                <p><strong>Status:</strong>
                   <span className={`status-badge ${selectedMessage.status}`}>
                     {selectedMessage.status}
                   </span>

@@ -7,15 +7,13 @@ const Form = () => {
     email: '',
     message: ''
   });
-  
+
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
   // Use the same IP address as the frontend
-  const API_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:5000' 
-    : `http://${window.location.hostname}:5000`;
+  const API_URL = "https://sayan-fs-portfolio.onrender.com"
 
   const handleAgreementClick = (e) => {
     e.preventDefault();
@@ -34,7 +32,7 @@ const Form = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
-    
+
     try {
       const response = await fetch(`${API_URL}/api/enquiries`, {
         method: 'POST',
@@ -43,21 +41,21 @@ const Form = () => {
         },
         body: JSON.stringify(formData),
       });
-      
+
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.message || 'Something went wrong');
       }
-      
+
       setSuccess(true);
       setFormData({ name: '', email: '', message: '' });
-      
+
       // Reset success message after 5 seconds
       setTimeout(() => {
         setSuccess(false);
       }, 5000);
-      
+
     } catch (error) {
       setError(error.message);
     } finally {
@@ -80,37 +78,37 @@ const Form = () => {
           </div>
         )}
         <form onSubmit={handleSubmit} className="form">
-          <input 
-            required 
-            className="input" 
-            type="text" 
-            name="name" 
-            id="name" 
+          <input
+            required
+            className="input"
+            type="text"
+            name="name"
+            id="name"
             placeholder="Your Name"
             value={formData.name}
-            onChange={handleChange} 
+            onChange={handleChange}
           />
-          <input 
-            required 
-            className="input" 
-            type="email" 
-            name="email" 
-            id="email" 
+          <input
+            required
+            className="input"
+            type="email"
+            name="email"
+            id="email"
             placeholder="Your Email"
             value={formData.email}
-            onChange={handleChange} 
+            onChange={handleChange}
           />
-          <textarea 
-            required 
-            className="input textarea" 
-            name="message" 
-            id="message" 
+          <textarea
+            required
+            className="input textarea"
+            name="message"
+            id="message"
             placeholder="Your Message"
             value={formData.message}
             onChange={handleChange}
           ></textarea>
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="login-button"
             disabled={loading}
           >
