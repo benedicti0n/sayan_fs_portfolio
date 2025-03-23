@@ -12,7 +12,7 @@ const CraftSection = () => {
             title: 'To-Do List',
             description: 'A simple and intuitive task management app to help you stay organized and productive.',
             technologies: ['HTML, CSS, JavaScript', 'React.js'],
-            projectLink: '#',
+            projectLink: 'https://todo-app-sayanbanik.netlify.app/',
         },
         {
             logo: 'user_enquiry.png',
